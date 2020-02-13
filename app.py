@@ -9,6 +9,9 @@ import pymysql
 from flask_cors import CORS
 import urllib3
 import xmltodict
+import os
+from flask import send_from_directory
+
 
 app = Flask(__name__)
 CORS(app)
@@ -30,6 +33,17 @@ def hour_rounder(t):
     return (t.replace(second=0, microsecond=0, minute=0, hour=t.hour)
             + dt.timedelta(hours=t.minute//30))
 
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                          'favicon.ico',mimetype='image/vnd.microsoft.icon')
+
+@app.route('/', methods=['GET'])
+def health():
+    return jsonify(
+        status='true'
+    )
 
 @app.route('/api/prediction', methods=['GET'])
 def apiPrediction():
