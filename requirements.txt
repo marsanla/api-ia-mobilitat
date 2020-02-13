@@ -10,7 +10,7 @@ configparser==4.0.2
 contextlib2==0.6.0.post1
 coverage==4.5.4
 crcmod==1.7
-cryptography==2.1.4
+cryptography==2.3
 defer==1.0.6
 Django==1.11.24
 enum34==1.1.6
