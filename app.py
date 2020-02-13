@@ -101,7 +101,7 @@ def apiPrediction():
         date=(date + dt.timedelta(hours=hoursCounter)),
         available=available,
         total=currentTotal,
-        perc=(available/int(currentTotal))
+        perc=(int(available)/int(currentTotal))
     )
 
 
